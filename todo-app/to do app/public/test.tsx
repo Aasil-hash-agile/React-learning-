@@ -8,3 +8,11 @@ test("renders welcome message", () => {
   const linkElement = screen.getByText(/Welcome to the App!/i);
   expect(linkElement).toBeInTheDocument();
 });     
+
+addEventListener("fetch", (event) => {
+  event.respondWith(
+    new Response("Hello from the server!", {
+      headers: { "content-type": "text/plain" },
+    })
+  );
+});             
